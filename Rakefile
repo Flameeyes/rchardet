@@ -16,7 +16,7 @@ spec = Gem::Specification.new do |s|
   s.homepage   = "http://github.com/jmhodges/rchardet/tree/master"
   s.platform   = Gem::Platform::RUBY
   s.summary    = "Character encoding auto-detection in Ruby. As smart as your browser. Open source."
-  s.files      = FileList["lib/**/*"]
+  s.files      = FileList["lib/**/*", "test/**/*"]
   s.require_path      = "lib"
   # s.autorequire       = "feedparser" # tHe 3vil according to Why.
   s.has_rdoc          = false # TODO: fix
@@ -26,4 +26,11 @@ spec = Gem::Specification.new do |s|
 end
 
 Rake::GemPackageTask.new(spec) do
+end
+
+require 'rake/testtask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib'
+  test.pattern = 'test/**test_*.rb'
+  test.verbose = true
 end
