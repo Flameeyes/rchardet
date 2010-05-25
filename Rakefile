@@ -5,7 +5,7 @@ begin
   require 'lib/rchardet'
 rescue LoadError
   module CharDet; VERSION = '0.0.0'; end
-  puts "Problem loading rfeedparser; try rake setup"
+  puts "Problem loading rchardet; try rake setup"
 end
 
 spec = Gem::Specification.new do |s|
